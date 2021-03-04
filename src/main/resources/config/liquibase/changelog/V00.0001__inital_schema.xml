@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">    <changeSet author="luke_corf" id="202103032117-01">
+        <createSequence cacheSize="20" cycle="false" incrementBy="1" ordered="false" sequenceName="SEQ_CLIENT_USER" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="luke_corf" id="202103032117-02">
+        <createTable remarks="Client information." tableName="TB_CLIENT_USER">
+            <column name="ID" remarks="Identifier." type="NUMBER(10, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" remarks="Client name." type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USERNAME" remarks="Client username." type="VARCHAR2(100 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BIRTH_DATE" remarks="Birth date." type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" remarks="E-Mail." type="VARCHAR2(155 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE" remarks="Phone number." type="VARCHAR2(20 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
