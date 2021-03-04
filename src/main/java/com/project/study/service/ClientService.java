@@ -7,6 +7,8 @@ import com.project.study.mapper.ClientMapper;
 import com.project.study.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.ObjectNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -33,14 +35,22 @@ public class ClientService {
         return persist(dClient);
     }
 
-    private DClient persist(DClient dClient) {
-        EClient eClient = mapper.toEntity(dClient);
-        return mapper.toDto(repository.save(eClient));
-    }
-
     public DClient findById(Long id){
         EClient eClient = repository.findById(id).orElseThrow(() -> new ObjectNotFoundException(id,"EClient.class"));
         return mapper.toDto(eClient);
     }
 
+    public Page<DClient> findAll(Pageable pageable) {
+        Page<EClient> page = repository.findAll(pageable);
+        return page.map(mapper::toDto);
+    }
+
+    public void delete(Long id){
+        repository.deleteById(id);
+    }
+
+    private DClient persist(DClient dClient) {
+        EClient eClient = mapper.toEntity(dClient);
+        return mapper.toDto(repository.save(eClient));
+    }
 }

@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "GERENCIAMENTO_SOLICITACAO")
+@Table(name = "TB_CLIENT_USER")
 @Data
 public class EClient {
 
