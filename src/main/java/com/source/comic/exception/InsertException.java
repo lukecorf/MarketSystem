@@ -1,4 +1,4 @@
-package com.project.study.exception;
+package com.source.comic.exception;
 
 import lombok.NoArgsConstructor;
 

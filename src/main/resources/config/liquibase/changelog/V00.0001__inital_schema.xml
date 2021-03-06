@@ -4,27 +4,27 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">    <changeSet author="luke_corf" id="202103032117-01">
-        <createSequence cacheSize="20" cycle="false" incrementBy="1" ordered="false" sequenceName="SEQ_CLIENT_USER" startValue="1"/>
+        <createSequence cacheSize="20" cycle="false" incrementBy="1" sequenceName="SEQ_PUBLISHER" startValue="1"/>
     </changeSet>
 
     <changeSet author="luke_corf" id="202103032117-02">
-        <createTable remarks="Client information." tableName="TB_CLIENT_USER">
+        <createTable remarks="Publishing company information." tableName="TB_PUBLISHING">
             <column name="ID" remarks="Identifier." type="NUMBER(10, 0)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" remarks="Client name." type="VARCHAR2(255 CHAR)">
+            <column name="NAME" remarks="Publisher name." type="VARCHAR2(255 BYTE)">
                 <constraints nullable="false"/>
             </column>
-            <column name="USERNAME" remarks="Client username." type="VARCHAR2(100 CHAR)">
+            <column name="WEBSITE" remarks="Publisher website." type="VARCHAR2(255 BYTE)">
                 <constraints nullable="false"/>
             </column>
-            <column name="BIRTH_DATE" remarks="Birth date." type="DATE">
+            <column name="BIRTH_DATE" remarks="Publisher birth date." type="DATE">
                 <constraints nullable="false"/>
             </column>
-            <column name="EMAIL" remarks="E-Mail." type="VARCHAR2(155 CHAR)">
+            <column name="LOGO" remarks="Publisher logo" type="BLOB">
                 <constraints nullable="false"/>
             </column>
-            <column name="PHONE" remarks="Phone number." type="VARCHAR2(20 CHAR)">
+            <column name="DESCRIPTION" remarks="Publisher description." type="VARCHAR2(4000 BYTE)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

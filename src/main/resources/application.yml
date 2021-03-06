@@ -2,3 +2,15 @@ spring:
   liquibase:
     change-log: classpath:/config/liquibase/master.xml
     contexts: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/comicsource
+    username: postgres
+    password: postgres
+    platform: postgres
+  database:
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update

@@ -1,4 +1,4 @@
-package com.project.study;
+package com.source.comic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

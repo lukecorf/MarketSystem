@@ -1,7 +1,7 @@
-package com.project.study.controller;
+package com.source.comic.controller;
 
-import com.project.study.dto.DClient;
-import com.project.study.service.ClientService;
+import com.source.comic.dto.DPublisher;
+import com.source.comic.service.PublisherService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -28,52 +28,52 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Client", description = "The Client API")
 public class ClientController {
 
-    private final ClientService service;
+    private final PublisherService service;
 
     @Operation(summary = "Insert a new client.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DClient.class)))
+            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DPublisher.class)))
     })
     @PostMapping
-    public ResponseEntity<DClient> insert(@RequestBody DClient dClient) {
-        DClient response = service.insert(dClient);
+    public ResponseEntity<DPublisher> insert(@RequestBody DPublisher dClient) {
+        DPublisher response = service.insert(dClient);
         return ResponseEntity.ok(response);
     }
 
 
     @Operation(summary = "Update a client.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DClient.class)))
+            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DPublisher.class)))
     })
     @PutMapping
-    public ResponseEntity<DClient> update(@RequestBody DClient dClient) {
-        DClient response = service.update(dClient);
+    public ResponseEntity<DPublisher> update(@RequestBody DPublisher dClient) {
+        DPublisher response = service.update(dClient);
         return ResponseEntity.ok(response);
     }
 
     @Operation(summary = "Find a client by ID.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DClient.class)))
+            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DPublisher.class)))
     })
     @GetMapping("/{id}")
-    public ResponseEntity<DClient> findById( @Parameter(description="Id of the client to be obtained. Cannot be empty.", required=true) @PathVariable Long id){
-        DClient response = service.findById(id);
+    public ResponseEntity<DPublisher> findById(@Parameter(description="Id of the client to be obtained. Cannot be empty.", required=true) @PathVariable Long id){
+        DPublisher response = service.findById(id);
         return ResponseEntity.ok(response);
     }
 
     @Operation(summary = "Find all clients.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DClient.class)))
+            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DPublisher.class)))
     })
     @GetMapping
-    public ResponseEntity<Page<DClient>> findAll(Pageable pageable) {
-        Page<DClient> response = service.findAll(pageable);
+    public ResponseEntity<Page<DPublisher>> findAll(Pageable pageable) {
+        Page<DPublisher> response = service.findAll(pageable);
         return ResponseEntity.ok(response);
     }
 
     @Operation(summary = "Delete a client by ID.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DClient.class)))
+            @ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(schema = @Schema(implementation = DPublisher.class)))
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@Parameter(description="Id of the client to be deleted. Cannot be empty.", required=true) @PathVariable Long id){

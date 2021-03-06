@@ -8,11 +8,11 @@
 		<version>2.5.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.project</groupId>
-	<artifactId>study</artifactId>
+	<groupId>com.source</groupId>
+	<artifactId>comic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>study</name>
+	<name>comic</name>
 	<description>Study Project</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -22,6 +22,8 @@
 		<maven.compiler.version>3.5.1</maven.compiler.version>
 		<lombok.version>1.18.10</lombok.version>
 		<springdoc.version>1.5.2</springdoc.version>
+		<postgres.version>9.4-1200-jdbc4</postgres.version>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -45,7 +47,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.4-1200-jdbc4</version>
+			<version>${postgres.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -74,6 +76,19 @@
 			<version>${springdoc.version}</version>
 		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+		</profile>
+		<profile>
+			<id>uat</id>
+		</profile>
+		<profile>
+			<id>prd</id>
+		</profile>
+
+	</profiles>
 
 	<build>
 		<plugins>

@@ -1,4 +1,4 @@
-package com.project.study.mapper;
+package com.source.comic.mapper;
 
 import java.util.List;
 
